@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عنوان الموقع</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; }
+        .menu-toggle {
+            position: fixed; 
+            top: 10px; 
+            left: 10px; 
+            cursor: pointer; 
+            z-index: 1000; 
+            background: #007BFF; 
+            padding: 10px; 
+            border-radius: 5px;
+        }
+        .menu-toggle div {
+            width: 30px; 
+            height: 3px; 
+            background: #fff; 
+            margin: 6px 0; 
+            transition: 0.3s;
+        }
+        .sidebar {
+            width: 250px;
+            background: #007BFF;
+            color: #fff;
+            position: fixed;
+            top: 0;
+            left: -250px; 
+            height: 100%;
+            transition: 0.3s;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar.show {
+            left: 0;
+        }
+        .sidebar h2 {
+            margin: 0;
+            text-align: center;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .sidebar ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #0056b3;
+        }
+        .sidebar ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .main-content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .page { padding: 20px; }
+        .home-page { background: #f0f8ff; color: #333; }
+        .home-page h1 { margin: 0 0 20px 0; }
+        .home-page .section {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .home-page .section h2 {
+            margin-top: 0;
+        }
+        .referral-page { background: #fff; color: #333; }
+        .referral-page h1 { margin: 0 0 20px 0; }
+        .referral-page .referral-info {
+            background: #fff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .referral-page .referral-info p {
+            margin: 0 0 10px;
+            line-height: 1.5;
+        }
+        .withdrawal-page { background: #e8f5e9; color: #333; }
+        .withdrawal-page h1 { margin: 0 0 20px 0; }
+        .withdrawal-page .wallets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .withdrawal-page .wallet {
+            flex: 1;
+            max-width: 200px;
+            border: 1px solid #007BFF;
+            border-radius: 5px;
+            padding: 10px;
+            text-align: center;
+            background: #fff;
+        }
+        .withdrawal-page .wallet img {
+            max-width: 100%;
+            height: auto;
+        }
+        .ads-page { background: #fff3cd; color: #333; }
+        .ads-page h1 { margin: 0 0 20px 0; }
+        .ads-page .ad {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            background: #fff;
+            cursor: pointer;
+            transition: background 0.3s, cursor 0.3s;
+        }
+        .ads-page .ad:hover {
+            background: #f0f0f0;
+        }
+        .ads-page .ad.disabled {
+            background: #d3d3d3;
+            cursor: not-allowed;
+        }
+        .ads-page .ad.disabled:hover {
+            background: #d3d3d3;
+        }
+        .ads-page .ad button {
+            background: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .ads-page .ad button:hover {
+            background: #0056b3;
+        }
+        .back-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #28a745;
